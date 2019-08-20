@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form_for @movie, html: { multipart: true } do |form| %>
+      <% if movie.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+    
+          <ul>
+          <% movie.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class:"form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :director_name %>
+        <%= form.text_field :director_name , class:"form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :director_dob %>
+        <%= form.text_field :director_dob, class:"form-control datepicker" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :actor_name %>
+        <%= form.text_field :actor_name, class:"form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :actor_dob %>
+        <%= form.text_field :actor_dob, class:"form-control datepicker" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :genra %>
+        <%= form.text_field :genra , class:"form-control" %>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :year %>
+        <%= form.text_field :year, class:"form-control datepicker" %>
+        
+      </div>
+    
+      <div class="form-group">
+          <%= form.label :image %>
+          <%= form.file_field :image, class:"form-control" %>
+        </div>
+    
+      <div class="actions ">
+        <%= form.submit%>
+      </div>
+    <% end %>
+    
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
