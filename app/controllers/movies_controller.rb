@@ -1,10 +1,12 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource :movie
+
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all.paginate(page: params[:page], per_page: 4)
+    @movies = Movie.all.paginate(page: params[:page], per_page: 8)
   end
 
   # GET /movies/1

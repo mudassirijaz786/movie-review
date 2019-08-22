@@ -3,19 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 gem 'pg', '~> 0.18.4'
-gem 'devise'
-gem 'paperclip', '~> 4.2.0'
-gem 'bootstrap-sass', '~> 3.2.0.2'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem 'devise-bootstrap-views', '~> 1.0'
-#gem 'materialize-sass', '~> 1.0.0'
-gem 'bootstrap-datepicker-rails'
-gem 'cancancan'
-gem 'rolify'
-gem 'will_paginate', '~> 3.1'
-gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
-gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
-gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
@@ -73,3 +61,18 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'devise'
+gem 'paperclip', '~> 4.2.0'
+gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+# gem 'devise-bootstrap-views', '~> 1.0'
+#gem 'materialize-sass', '~> 1.0.0'
+gem 'toastr-rails'
+
+gem 'bootstrap-datepicker-rails'
+gem 'cancancan'
+gem 'rolify'
+gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'

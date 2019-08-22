@@ -1,24 +1,21 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "Movie Application", root_path, class: "navbar-brand" %>
-      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+
+  <!-- Topbar -->
+  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+      <!-- Sidebar Toggle (Topbar) -->
+      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+      </button>
+      <%= link_to "Movie Application", root_path, class: "navbar-brand" %>  
+
+
+      <ul class="nav navbar-light">
           <% if user_signed_in? %>
             <%if current_user.has_role? :admin%>
               <li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
             <%end%>
             <li><%= link_to "Account", edit_user_registration_path %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             <% else %>
             
             <li><%= link_to "Sign Up", new_user_registration_path, class: "active" %></li>
@@ -26,21 +23,56 @@
           <% end %>
 
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li> current Signed in: <%= current_user.email %></li>
-          <%end%>
-        </ul>
-        <!--
-        <%= form_tag search_movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-          <p>
-            <%= text_field_tag :search, params[:search], class: "form-control" %>
-            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-          </p>
-        <% end %>
-        -->
+      <!-- Topbar Navbar -->
+      <ul class="navbar-nav ml-auto">
 
-       
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-search fa-fw"></i>
+          </a>
+          <!-- Dropdown - Messages -->
+          <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+            <form class="form-inline mr-auto w-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+
+
+
+
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><p>
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                <% if user_signed_in? %>
+              <li> current Signed in: <%= current_user.email %></li>
+            <%end%>
+              </p></span>
+          </a>
+          <!-- Dropdown - User Information -->
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+            
+
+            <div class="dropdown-divider"></div>
+              <%= link_to destroy_user_session_path, method: :delete,class:"dropdown-item" do %>
+              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+              Logout
+              <% end %>
+            </div>
+        </li>
+
+      </ul>
+
+    </nav>
+    <!-- End of Topbar -->

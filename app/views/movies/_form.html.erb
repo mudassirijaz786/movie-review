@@ -1,70 +1,111 @@
+
+
+
+
+
+
+
+
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-lg-6">
-      <%= form_for @movie, html: { multipart: true } do |form| %>
-      <% if movie.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
-    
-          <ul>
-          <% movie.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    
-      <div class="form-group">
-        <%= form.label :title %>
-        <%= form.text_field :title, class:"form-control" %>
-      </div>
-    
-      <div class="form-group">
-        <%= form.label :director_name %>
-        <%= form.text_field :director_name , class:"form-control" %>
-      </div>
-    
-      <div class="form-group">
-        <%= form.label :director_dob %>
-        <%= form.text_field :director_dob, class:"form-control datepicker" %>
-      </div>
-    
-      <div class="form-group">
-        <%= form.label :actor_name %>
-        <%= form.text_field :actor_name, class:"form-control" %>
-      </div>
-    
-      <div class="form-group">
-        <%= form.label :actor_dob %>
-        <%= form.text_field :actor_dob, class:"form-control datepicker" %>
-      </div>
-    
-      <div class="form-group dropdown-toggle">
-        <%= form.label :genra %>
-        <%= form.select(:genra , options_for_select(["Drama", "Comedy", "Action", "Adventure", "Horror"], class:"dropdown-item"), class:"form-control dropdown-menu ")  %>
-      </div>
-    
-      <div class="form-group">
-        <%= form.label :year %>
-        <%= form.text_field :year, class:"form-control datepicker" %>
-        
-      </div>
-    
-      <div class="form-group">
-          <%= form.label :image %>
-          <%= form.file_field :image, class:"form-control" %>
-        </div>
-    
-      <div class="actions ">
-        <%= form.submit%>
-      </div>
-    <% end %>
-    
-    </div>
-  </div>
-</div>
+
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                </div>
+                <%= form_for @movie, html: {class: "user"} do |form| %>
+
+                <% if movie.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+              
+                    <ul>
+                    <% movie.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+              
+                <div class="form-group">
+                  <%= form.label :title %>
+                  <%= form.text_field :title, :class =>'form-control form-control-user' ,
+                  :id => "exampleInputEmail", :placeholder => "title" %>
+                </div>
+              
+                <div class="form-group">
+                  <%= form.label :director_name %>
+                  <%= form.text_field :director_name , :class =>'form-control form-control-user' ,
+                  :id => "exampleInputEmail", :placeholder => "dir name" %>
+                </div>
+              
+                <div class="form-group">
+                  <%= form.label :director_dob %>
+                  <%= form.text_field :director_dob, :class =>'form-control form-control-user datepicker' ,
+                  :id => "exampleInputEmail", :placeholder => "dob dir" %>
+                </div>
+              
+                <div class="form-group">
+                  <%= form.label :actor_name %>
+                  <%= form.text_field :actor_name, :class =>'form-control form-control-user' ,
+                  :id => "exampleInputEmail", :placeholder => "title"%>
+                </div>
+              
+                <div class="form-group">
+                  <%= form.label :actor_dob %>
+                  <%= form.text_field :actor_dob, :class =>'form-control form-control-user datepicker' ,
+                  :id => "exampleInputEmail", :placeholder => "dob actor" %>
+                </div>
+              
+                <div class="form-group dropdown-toggle">
+                  <%= form.label :genra %>
+                  <%= form.select(:genra , options_for_select(["Drama", "Comedy", "Action", "Adventure", "Horror"], :class=>"dropdown-item"), class:"dropdown-menu")  %>
+                </div>
+              
+                <div class="form-group">
+                  <%= form.label :year %>
+                  <%= form.text_field :year, :class =>'form-control form-control-user datepicker' ,
+                  :id => "exampleInputEmail", :placeholder => "title"%>
+                  
+                </div>
+              
+                <div class="form-group">
+                    <%= form.label :image %>
+                    <%= form.file_field :image, class:"form-control-user" %>
+                  </div>
+              
+                <div class="actions ">
+                  <%= form.submit "submit" , class: 'btn btn-primary btn-user btn-block'%>
+                </div>
+              <% end %>
+              
+              </div>
+            </div>
+          </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+
 <script type="text/javascript">
   $(document).ready(function(){
     $('.datepicker').datepicker();
   });
 </script>
+
+
