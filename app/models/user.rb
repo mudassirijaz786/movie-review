@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, 
          :validatable, :confirmable,authentication_keys: [:login]
   has_many :movies
+  has_many :reviews
   has_many :reviews, dependent: :destroy
   attr_writer :login
   validates :username, presence: :true, uniqueness: { case_sensitive: false }

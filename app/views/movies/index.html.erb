@@ -1,10 +1,26 @@
-
-
-  <div class="card card-image " , style="height: 150px">
-    <% @movies.each do |movie| %>
-  <div class="col-sm-6 col-md-3 thumbnail">
-      <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
-  </div>
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <h1>Your Favorite Movies Reviewed</h1>
+  <p>Hashtag hoodie mumblecore selfies. Authentic keffiyeh leggings Kickstarter, narwhal jean shorts XOXO Vice Austin cardigan. Organic drinking vinegar freegan pickled.</p>
+  <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-user" %></p>
+</div>
 <% end %>
-  </div>
-<%=will_paginate @movies, renderer: BootstrapPagination::Rails,previous_label: "Backward Move", next_label: "Forward Move", inner_window:0, outer_window:0%>
+<div class="container-fluid">
+    <div class="row">
+        <% @movies.each do |movie| %>
+          <div class="col-sm-4 col-md-3">
+           
+            <div class="thumbnail">
+               <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+               <h1> <%movie.title%></h1>
+
+              </div>
+            </div>
+        <% end %>
+        </div>
+</div>
+
+
+
+
+  <%=will_paginate @movies, renderer: BootstrapPagination::Rails,previous_label: "Backward Move", next_label: "Forward Move", inner_window:0, outer_window:0%>  

@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all.paginate(page: params[:page], per_page: 8)
+    @movies = Movie.all.paginate(page: params[:page], per_page: 4)
   end
 
   # GET /movies/1

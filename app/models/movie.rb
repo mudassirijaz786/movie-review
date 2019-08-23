@@ -3,6 +3,7 @@ class Movie < ApplicationRecord
     resourcify
     belongs_to :user
     has_many :reviews
+    has_many :reserve
     validates :title,:director_name,:director_dob, :actor_name, :actor_dob, :genra, :year, :image, :presence => true
 
     has_attached_file :image, styles: { medium: "400x600#" }, default_url: "/images/:style/missing.png"
