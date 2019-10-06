@@ -65,7 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'paperclip', '~> 4.2.0'
-gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # gem 'devise-bootstrap-views', '~> 1.0'
 #gem 'materialize-sass', '~> 1.0.0'
